@@ -1,0 +1,36 @@
+{
+    ".source.html": {
+      "expression tag": {
+        "prefix": "ple",
+        "body": "<% ${1:expression} %>"
+      },
+      "print tag": {
+        "prefix": "plp",
+        "body": "<%= ${1:expression} %>"
+      },
+      "if block": {
+        "prefix": "plif",
+        "body": "<%= if (${1:condition}) { %>\n\t${2:<!-- some html here -->}\n<% } %>"
+      },
+      "if else block": {
+        "prefix": "plie",
+        "body": "<%= if (${1:condition}) { %>\n\t${2:<!-- some html here -->}\n<% } else { %>\n\t${2:<!-- some html here -->}\n<% } %>"
+      },
+      "map": {
+        "prefix": "plm",
+        "body": "<% let ${1:name} = {${2:key}: ${3:value}} %>"
+      },
+      "array": {
+        "prefix": "pla",
+        "body": "<% let ${1:name} = [${2:values}] %>"
+      },
+      "for": {
+        "prefix": "plf",
+        "body": "<%= for (${1:key}, ${2:value}) in ${3:expression} { %>\n\t<%= ${1} %> <%= ${2} %>\n<% } %>"
+      },
+      "com": {
+        "prefix": "pcom",
+        "body": "<%# %>"
+      }
+    }
+  }

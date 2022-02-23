@@ -1,0 +1,173 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "GoPlush",
+    "scopeName": "text.html.plush",
+    "fileTypes": ["html", "htm", "go-html", "plush"],
+    "patterns": [
+        {
+            "include": "text.html.basic"
+        },
+        {
+            "include": "#block-comment"
+        },
+        {
+            "begin": "(<%=|<%)",
+            "beginCaptures": {
+                "0": {
+                    "name": "punctuation.section.begin.plush"
+                }
+            },
+            "end": "%>",
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.section.end.plush"
+                }
+            },
+            "patterns": [
+                {
+                    "match": "<%[^#]",
+                    "name": "invalid.illegal.characters-not-allowed-here.plush"
+                },
+                {
+                    "match": "(\\{|\\}|\\[|\\]|\\(|\\))",
+                    "name": "punctuation.bracket.plush"
+                },
+                {
+                    "include": "#block-comment"
+                },
+                {
+                    "include": "#line-comment"
+                },
+                {
+                    "include": "#keyword"
+                },
+                {
+                    "include": "#operator"
+                },
+                {
+                    "include": "text.html.basic"
+                }
+            ]
+        }
+    ],
+    "repository": {
+        "block-comment": {
+            "begin": "<%#",
+            "captures": {
+                "0": {
+                    "name": "punctuation.definition.comment.begin.plush"
+                }
+            },
+            "end": "%>",
+            "name": "comment.block.plush",
+            "patterns": [
+                {
+                    "match": "[^%]>",
+                    "name": "invalid.illegal.characters-not-allowed-here.plush"
+                }
+            ]
+        },
+        "line-comment": {
+            "patterns": [
+                {
+                    "begin": "#",
+                    "captures": {
+                        "0": {
+                            "name": "punctuation.definition.comment.begin.plush"
+                        }
+                    },
+                    "end": "$",
+                    "name": "comment.line.plush"
+                }
+            ]
+        },
+        "keyword": {
+            "patterns": [
+                {
+                    "match": "(?i)(function|let|if|else|return|\bfor|in|fn|func)",
+                    "name": "keyword.plush"
+                },
+                {
+                    "match": "(?i)(true|false)",
+                    "name": "markup.italic.plush"
+                },
+                {
+                    "begin": "\"",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.string.begin.plush"
+                        }
+                    },
+                    "end": "\"",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.string.end.plush"
+                        }
+                    },
+                    "name": "string.quoted.double.plush"
+                },
+                {
+                    "begin": "'",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.string.begin.plush"
+                        }
+                    },
+                    "end": "'",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.string.end.plush"
+                        }
+                    },
+                    "name": "string.quoted.single.plush"
+                },
+                {
+                    "begin": "`",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.string.begin.plush"
+                        }
+                    },
+                    "end": "`",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.string.end.plush"
+                        }
+                    },
+                    "name": "string.quoted.other.plush"
+                },
+                {
+                    "match": "[0-9]",
+                    "name": "constant.numeric.plush"
+                },
+                {
+                    "match": "[a-zA-Z]+(\\()",
+                    "captures": {
+                        "0": {
+                            "name": "entity.name.function.plush"
+                        },
+                        "1": {
+                            "name": "punctuation.bracket.plush"
+                        }
+                    }
+                },
+                {
+                    "match": "\b[a-zA-z]\b",
+                    "name": "variable.name.plush"
+                }
+            ]
+        },
+        "operator": {
+            "patterns": [
+                {
+                    "match": "(==|\\!=|\\~=|<=|<|>=|>|\\&\\&|\\|\\||\\;|\\*|\\\\|/|\\-|\\+)",
+                    "name": "keyword.operator.plush"
+                },
+                {
+                    "match": "=",
+                    "name":"keyword.operator.new.plush"
+                }
+            ]
+        }
+    }
+}
