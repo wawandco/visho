@@ -1,6 +1,6 @@
 {
     "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-    "name": "GoPlush",
+    "name": "plushplugin",
     "scopeName": "text.html.plush",
     "fileTypes": ["html", "htm", "go-html", "plush"],
     "patterns": [
@@ -84,7 +84,7 @@
         "keyword": {
             "patterns": [
                 {
-                    "match": "(?i)(function|let|if|else|return|\bfor|in|fn|func)",
+                    "match": "(?i)(function|let|if|else|return|\bfor\b|in|fn|func)",
                     "name": "keyword.plush"
                 },
                 {

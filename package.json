@@ -1,6 +1,6 @@
 {
-	"name": "goplush",
-	"displayName": "GoPlush",
+	"name": "plushplungin",
+	"displayName": "Plush Plugin",
 	"description": "A plush extension for VScode",
 	"version": "0.0.1",
 	"engines": {
@@ -10,7 +10,7 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:goplush.helloWorld"
+		"onCommand:plushplungin.helloWorld"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
