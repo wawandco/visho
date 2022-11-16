@@ -89,7 +89,7 @@
                 },
                 {
                     "match": "(?i)(true|false)",
-                    "name": "markup.italic.plush"
+                    "name": "constant.plush"
                 },
                 {
                     "begin": "\"",
@@ -165,7 +165,7 @@
                 },
                 {
                     "match": "=",
-                    "name":"keyword.operator.new.plush"
+                    "name":"keyword.operator.plush"
                 }
             ]
         }
