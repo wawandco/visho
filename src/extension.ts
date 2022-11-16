@@ -19,8 +19,8 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.window.showInformationMessage('Hello World from plushplugin!');
 	});
 
-	context.subscriptions.push(disposable);
 }
+
 
 // this method is called when your extension is deactivated
 export function deactivate() {}

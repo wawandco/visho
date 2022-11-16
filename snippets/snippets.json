@@ -1,36 +1,64 @@
 {
     ".source.html": {
       "expression tag": {
-        "prefix": "ple",
+        "prefix": "pe",
         "body": "<% ${1:expression} %>"
       },
       "print tag": {
-        "prefix": "plp",
+        "prefix": "pt",
         "body": "<%= ${1:expression} %>"
       },
       "if block": {
-        "prefix": "plif",
-        "body": "<%= if (${1:condition}) { %>\n\t${2:<!-- some html here -->}\n<% } %>"
+        "prefix": "pif",
+        "body": "<%= if (${1:condition}) { %>\n\t${2:<!-- html here -->}\n<% } %>"
       },
       "if else block": {
-        "prefix": "plie",
-        "body": "<%= if (${1:condition}) { %>\n\t${2:<!-- some html here -->}\n<% } else { %>\n\t${2:<!-- some html here -->}\n<% } %>"
+        "prefix": "pie",
+        "body": "<%= if (${1:condition}) { %>\n\t${2:<!-- html here -->}\n<% } else { %>\n\t${2:<!-- html here -->}\n<% } %>"
       },
       "map": {
-        "prefix": "plm",
+        "prefix": "pm",
         "body": "<% let ${1:name} = {${2:key}: ${3:value}} %>"
       },
       "array": {
-        "prefix": "pla",
+        "prefix": "pa",
         "body": "<% let ${1:name} = [${2:values}] %>"
       },
       "for": {
-        "prefix": "plf",
+        "prefix": "pf",
         "body": "<%= for (${1:key}, ${2:value}) in ${3:expression} { %>\n\t<%= ${1} %> <%= ${2} %>\n<% } %>"
       },
       "com": {
         "prefix": "pcom",
         "body": "<%# %>"
+      },
+      "form":{
+        "prefix": "pform",
+        "body": "<%= form({action: ${1:pathName}({${2:params}}), method: ${3:method}}) { %>\n\t${4:<!-- form content here -->}\n<% } %>"
+      },
+      "form for":{
+        "prefix": "pformf",
+        "body": "<%= form_for(${1:Name}, {action: ${2:pathName}({${3:params}}), method: ${4:method}}) { %> \n\t${5:<!-- form content here -->}\n<% } %>"
+      },
+      "input":{
+        "prefix": "pinp",
+        "body": "<%= f.InputTag(${1:name}, {label:${2:label} , class:${3:class}}) %>"
+      },
+      "text area":{
+        "prefix": "pta",
+        "body": "<%= f.TextArea(${1:name}, {label:${2:label} , class:${3:class}, value:${4:value}, placeholder:${5:placeholder}}) %>"
+      },
+      "text area tag":{
+        "prefix": "ptat",
+        "body": "<%= f.TextAreaTag(${1:name}, {label:${2:label} , class:${3:class}, value:${4:value}, placeholder:${5:placeholder}}) %>"
+      },
+      "select tag":{
+        "prefix": "pslc",
+        "body": "<%= f.SelectTag(${1:name}, {options:${2:options},label:${3:label} , class:${4:class}}) %>"
+      },
+      "checkbox tag":{
+        "prefix": "pch",
+        "body": "<%= f.CheckboxTag(${1:name}, {class:${3:class}}) %>"
       }
     }
   }

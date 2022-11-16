@@ -10,7 +10,8 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:plushplungin.helloWorld"
+		"onCommand:plushplungin.helloWorld",
+		"onLanguage:plush"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
