@@ -1,6 +1,6 @@
 {
-	"name": "plushplungin",
-	"displayName": "Plush Plugin",
+	"name": "visho",
+	"displayName": "Visho",
 	"description": "A plush extension for VScode",
 	"version": "0.0.1",
 	"engines": {
@@ -10,7 +10,7 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:plushplungin.helloWorld",
+		"onCommand:visho.helloWorld",
 		"onLanguage:plush"
 	],
 	"main": "./out/extension.js",
