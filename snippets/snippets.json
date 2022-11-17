@@ -1,5 +1,5 @@
 {
-    ".source.html": {
+    ".text.html.plush": {
       "expression tag": {
         "prefix": "pe",
         "body": "<% ${1:expression} %>"

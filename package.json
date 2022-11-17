@@ -1,6 +1,6 @@
 {
-	"name": "plushplungin",
-	"displayName": "Plush Plugin",
+	"name": "visho",
+	"displayName": "Visho",
 	"description": "A plush extension for VScode",
 	"version": "0.0.1",
 	"engines": {
@@ -10,13 +10,13 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:plushplungin.helloWorld",
+		"onCommand:visho.helloWorld",
 		"onLanguage:plush"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"snippets": [{
-            "language": "html",
+            "language": "plush",
             "path": "./snippets/snippets.json"
         }],
 		"languages": [
@@ -52,7 +52,7 @@
 			  "scopeName": "text.html.plush",
 			  "path": "./syntaxes/plush.tmLanguage.json",
 			  "embeddedLanguages": {
-				"text.html": "html",
+				"text.html meta.embedded.block.html meta.tag": "html",
 				"source.css": "css",
 				"source.js": "javascript"
 			  },
