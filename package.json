@@ -4,6 +4,10 @@
 	"publisher": "wawandco-tools",
 	"description": "A plush extension for VScode",
 	"version": "0.0.1",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/wawandco/visho"
+	},
 	"engines": {
 		"vscode": "^1.64.0"
 	},
