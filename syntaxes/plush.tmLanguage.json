@@ -1,16 +1,60 @@
 {
     "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-    "name": "plushplugin",
+    "name": "Plush",
     "scopeName": "text.html.plush",
     "fileTypes": ["html", "htm", "go-html", "plush"],
+    "injections": {
+		"text.html.plush, L:(source.css - (meta.embedded.block.plush | meta.embedded.line.plush))": {
+			"patterns": [
+				{
+					"include": "#keyword"
+				},
+                {
+                    "include": "#main"
+                }
+			]
+		}
+	},
     "patterns": [
         {
             "include": "text.html.basic"
         },
         {
             "include": "#block-comment"
+        }
+    ],
+    "repository": {
+        "block-comment": {
+            "begin": "<%#",
+            "captures": {
+                "0": {
+                    "name": "punctuation.definition.comment.begin.plush"
+                }
+            },
+            "end": "%>",
+            "name": "comment.block.plush",
+            "patterns": [
+                {
+                    "match": "[^%]>",
+                    "name": "invalid.illegal.characters-not-allowed-here.plush"
+                }
+            ]
         },
-        {
+        "line-comment": {
+            "patterns": [
+                {
+                    "begin": "#",
+                    "captures": {
+                        "0": {
+                            "name": "punctuation.definition.comment.begin.plush"
+                        }
+                    },
+                    "end": "$",
+                    "name": "comment.line.plush"
+                }
+            ]
+        },
+        "main":  {
             "begin": "(<%=|<%)",
             "beginCaptures": {
                 "0": {
@@ -48,48 +92,16 @@
                     "include": "text.html.basic"
                 }
             ]
-        }
-    ],
-    "repository": {
-        "block-comment": {
-            "begin": "<%#",
-            "captures": {
-                "0": {
-                    "name": "punctuation.definition.comment.begin.plush"
-                }
-            },
-            "end": "%>",
-            "name": "comment.block.plush",
-            "patterns": [
-                {
-                    "match": "[^%]>",
-                    "name": "invalid.illegal.characters-not-allowed-here.plush"
-                }
-            ]
-        },
-        "line-comment": {
-            "patterns": [
-                {
-                    "begin": "#",
-                    "captures": {
-                        "0": {
-                            "name": "punctuation.definition.comment.begin.plush"
-                        }
-                    },
-                    "end": "$",
-                    "name": "comment.line.plush"
-                }
-            ]
         },
         "keyword": {
             "patterns": [
                 {
-                    "match": "(?i)(function|let|if|else|return|\bfor\b|in|fn|func)",
+                    "match": "(?i)(\bfunction\b|\blet\b|\bif\b|\belse\b|\breturn\b|\bfor\b|\bin\b|\bfn\b|\bfunc\b)",
                     "name": "keyword.plush"
                 },
                 {
                     "match": "(?i)(true|false)",
-                    "name": "constant.plush"
+                    "name": "markup.italic.plush"
                 },
                 {
                     "begin": "\"",
@@ -137,7 +149,7 @@
                     "name": "string.quoted.other.plush"
                 },
                 {
-                    "match": "[0-9]",
+                    "match": "\b[0-9]\b",
                     "name": "constant.numeric.plush"
                 },
                 {
@@ -165,7 +177,7 @@
                 },
                 {
                     "match": "=",
-                    "name":"keyword.operator.plush"
+                    "name":"keyword.operator.new.plush"
                 }
             ]
         }
