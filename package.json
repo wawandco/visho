@@ -1,6 +1,7 @@
 {
 	"name": "visho",
 	"displayName": "Visho",
+	"publisher": "wawandco-tools",
 	"description": "A plush extension for VScode",
 	"version": "0.0.1",
 	"engines": {
@@ -68,7 +69,8 @@
 		"watch": "tsc -watch -p ./",
 		"pretest": "npm run compile && npm run lint",
 		"lint": "eslint src --ext ts",
-		"test": "node ./out/test/runTest.js"
+		"test": "node ./out/test/runTest.js",
+		"deploy": "vsce publish --yarn"
 	},
 	"devDependencies": {
 		"@types/vscode": "^1.64.0",
