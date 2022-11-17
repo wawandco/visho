@@ -16,52 +16,54 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
-		"snippets": [{
-            "language": "plush",
-            "path": "./snippets/snippets.json"
-        }],
+		"snippets": [
+			{
+				"language": "plush",
+				"path": "./snippets/snippets.json"
+			}
+		],
 		"languages": [
 			{
-			  "id": "plush",
-			  "aliases": [
-				"Plush",
-				"plush",
-				"Go-Plush",
-				"go-plush",
-				"Plush-HTML",
-				"plush-html"
-			  ],
-			  "extensions": [
-				".html",
-				".htm",
-				".go-html",
-				".plush-html",
-				".plush"
-			  ],
-			  "mimetypes": [
-				"text/html",
-				"text/template",
-				"text/ng-template",
-				"application/xhtml+xml"
-			  ],
-			  "configuration": "./language-configuration.json"
+				"id": "plush",
+				"aliases": [
+					"Plush",
+					"plush",
+					"Go-Plush",
+					"go-plush",
+					"Plush-HTML",
+					"plush-html"
+				],
+				"extensions": [
+					".html",
+					".htm",
+					".go-html",
+					".plush-html",
+					".plush"
+				],
+				"mimetypes": [
+					"text/html",
+					"text/template",
+					"text/ng-template",
+					"application/xhtml+xml"
+				],
+				"configuration": "./language-configuration.json"
 			}
-		  ],
-		  "grammars": [
+		],
+		"grammars": [
 			{
-			  "language": "plush",
-			  "scopeName": "text.html.plush",
-			  "path": "./syntaxes/plush.tmLanguage.json",
-			  "embeddedLanguages": {
-				"text.html meta.embedded.block.html meta.tag": "html",
-				"source.css": "css",
-				"source.js": "javascript"
-			  },
-			  "tokenTypes": {
-				"meta.tag string.quoted": "other"
-			  }
+				"language": "plush",
+				"scopeName": "text.html.plush",
+				"path": "./syntaxes/plush.tmLanguage.json",
+				"embeddedLanguages": {
+					"text.html meta.embedded.block.html meta.tag": "html",
+					"source.css": "css",
+					"source.js": "javascript"
+				},
+				"tokenTypes": {
+					"meta.tag string.quoted": "other"
+				}
 			}
-		  ]
+		]
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
@@ -73,16 +75,17 @@
 		"deploy": "vsce publish --yarn"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.64.0",
 		"@types/glob": "^7.1.4",
 		"@types/mocha": "^9.0.0",
 		"@types/node": "14.x",
+		"@types/vscode": "^1.64.0",
 		"@typescript-eslint/eslint-plugin": "^5.1.0",
 		"@typescript-eslint/parser": "^5.1.0",
+		"@vscode/test-electron": "^1.6.2",
 		"eslint": "^8.1.0",
 		"glob": "^7.1.7",
 		"mocha": "^9.1.3",
 		"typescript": "^4.4.4",
-		"@vscode/test-electron": "^1.6.2"
+		"vsce": "^2.14.0"
 	}
 }
