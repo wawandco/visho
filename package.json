@@ -3,7 +3,7 @@
 	"displayName": "Visho",
 	"publisher": "wawandco-tools",
 	"description": "A plush extension for VScode",
-	"version": "0.0.1",
+	"version": "main",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/wawandco/visho"
