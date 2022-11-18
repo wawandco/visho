@@ -96,7 +96,7 @@
         "keyword": {
             "patterns": [
                 {
-                    "match": "(?i)(\bfunction\b|\blet\b|\bif\b|\belse\b|\breturn\b|\bfor\b|\bin\b|\bfn\b|\bfunc\b)",
+                    "match": "(?i)\\b(function|let|if|else|return|for|in|fn|func|form_for|form)\\b",
                     "name": "keyword.plush"
                 },
                 {
@@ -153,7 +153,7 @@
                     "name": "constant.numeric.plush"
                 },
                 {
-                    "match": "[a-zA-Z]+(\\()",
+                    "match": "[A-Za-z0-9_-]+(\\()",
                     "captures": {
                         "0": {
                             "name": "entity.name.function.plush"
@@ -164,7 +164,7 @@
                     }
                 },
                 {
-                    "match": "\b[a-zA-z]\b",
+                    "match": "\b[A-Za-z0-9_-]\b",
                     "name": "variable.name.plush"
                 }
             ]
