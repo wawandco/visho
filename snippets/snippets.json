@@ -59,6 +59,35 @@
       "checkbox tag":{
         "prefix": "pch",
         "body": "<%= f.CheckboxTag(${1:name}, {class:${3:class}}) %>"
+      },
+
+      "expression tag l": {
+        "prefix": "ple",
+        "body": "<% ${1:expression} %>"
+      },
+      "print tag l": {
+        "prefix": "plt",
+        "body": "<%= ${1:expression} %>"
+      },
+      "if block l": {
+        "prefix": "plif",
+        "body": "<%= if (${1:condition}) { %>\n\t${2:<!-- html here -->}\n<% } %>"
+      },
+      "if else block l": {
+        "prefix": "plie",
+        "body": "<%= if (${1:condition}) { %>\n\t${2:<!-- html here -->}\n<% } else { %>\n\t${2:<!-- html here -->}\n<% } %>"
+      },
+      "map l": {
+        "prefix": "plm",
+        "body": "<% let ${1:name} = {${2:key}: ${3:value}} %>"
+      },
+      "array l": {
+        "prefix": "pla",
+        "body": "<% let ${1:name} = [${2:values}] %>"
+      },
+      "for l": {
+        "prefix": "plf",
+        "body": "<%= for (${1:key}, ${2:value}) in ${3:expression} { %>\n\t<%= ${1} %> <%= ${2} %>\n<% } %>"
       }
     }
   }
