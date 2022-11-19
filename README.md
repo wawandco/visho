@@ -2,11 +2,32 @@
 
 Visho is a VSCode extension that provides tooling for the [Plush](https://github.com/gobuffalo/plush) templating language. 
 
-![Preview](https://github.com/wawandco/visho/blob/main/assets/syntax-highlight.png)
-### Features
+## Features
 
-- Syntax highlighting for `.plush.html` files
-- Code snippets
+### Syntax highlighting
+This extension provides syntax highlighting for the Plush language.
+
+![Preview](https://raw.githubusercontent.com/wawandco/visho/main/assets/syntax-highlight.png)
+### Code snippets
+
+Visho provides a set of code snippets for the most common plush tags and functions.
+
+- `pif` adds an if block
+- `pie` adds an if/else block
+- `pm` adds a map variable definition
+- `pa` adds an array/slice variable definition
+- `pa` adds an array/slice variable definition
+- `pfor` adds a for block
+- `pform` adds a form block
+- `pformf` adds a form_for block 
+- `pinp` adds a plush input tag
+- `pta` adds a plush text area
+- `pslc` adds a plush select tag
+- `pch` adds a plush checkbox tag
+- `pe` adds a plush expression (`<% content %>`)
+- `pt` adds a print tag (`<%= content %>`)
+
+Additionally these can be used with the `pl` prefix instead of `p` (e.g. `plif` instead of `pif`)
 
 ### Copyright
 
