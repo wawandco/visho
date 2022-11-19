@@ -4,7 +4,7 @@
 	"publisher": "wawandco-tools",
 	"description": "A plush extension for VScode",
 	"version": "main",
-	"icon": "/assets/visho.png",
+	"icon": "assets/visho.png",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/wawandco/visho"
