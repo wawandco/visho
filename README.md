@@ -1,5 +1,7 @@
 # Visho
 
+![Logo](https://raw.githubusercontent.com/wawandco/visho/main/assets/visho.png)
+
 Visho is a VSCode extension that provides tooling for the [Plush](https://github.com/gobuffalo/plush) templating language. 
 
 ## Features
