@@ -57,7 +57,11 @@
 					"plush": {
 					  "editor.semanticHighlighting.enabled": true
 					}
-				  }
+				},
+				"icon": {
+					"dark": "./assets/visho_icon.png",
+					"light": "./assets/visho_icon.png"
+				}
 			}
 		],
 		"commands":[
