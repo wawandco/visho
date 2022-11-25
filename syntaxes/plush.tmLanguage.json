@@ -6,9 +6,6 @@
     "injections": {
 		"text.html.plush, L:(source.css - (meta.embedded.block.plush | meta.embedded.line.plush))": {
 			"patterns": [
-				{
-					"include": "#keyword"
-				},
                 {
                     "include": "#main"
                 }
