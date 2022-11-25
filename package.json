@@ -3,7 +3,7 @@
 	"displayName": "Visho",
 	"publisher": "wawandco-tools",
 	"description": "A plush extension for VScode",
-	"version": "main",
+	"version": "0.0.1",
 	"icon": "assets/visho.png",
 	"repository": {
 		"type": "git",
@@ -52,6 +52,19 @@
 					"application/xhtml+xml"
 				],
 				"configuration": "./language-configuration.json"
+				,
+				"configurationDefaults": {
+					"plush": {
+					  "editor.semanticHighlighting.enabled": true
+					}
+				  }
+			}
+		],
+		"commands":[
+			{
+				"command": "visho.hello",
+				"title": "Hello",
+				"enablement": "true"
 			}
 		],
 		"grammars": [
@@ -60,12 +73,12 @@
 				"scopeName": "text.html.plush",
 				"path": "./syntaxes/plush.tmLanguage.json",
 				"embeddedLanguages": {
-					"text.html meta.embedded.block.html meta.tag": "html",
+					"source.html": "html",
 					"source.css": "css",
 					"source.js": "javascript"
 				},
 				"tokenTypes": {
-					"meta.tag string.quoted": "other"
+					"meta.tag": "other"
 				}
 			}
 		]

@@ -86,10 +86,22 @@
                     "include": "#keyword"
                 },
                 {
+                    "include": "#function"
+                },
+                {
                     "include": "#operator"
                 },
                 {
                     "include": "text.html.basic"
+                },
+                {
+                    "include": "#strings"
+                },
+                {
+                    "include": "#variable"
+                },
+                {
+                    "include": "boolean"
                 }
             ]
         },
@@ -100,11 +112,18 @@
                     "name": "keyword.plush"
                 },
                 {
-                    "match": "(?i)(true|false)",
-                    "name": "markup.italic.plush"
-                },
-                {
-                    "begin": "\"",
+                    "match": "\b[0-9]\b",
+                    "name": "constant.numeric.plush"
+                } 
+            ]
+        },
+        "boolean":{
+            "match": "(?i)(true|false)",
+            "name": "markup.italic.plush"
+        },
+        "strings":{
+            "patterns": [
+                {  "begin": "\"",
                     "beginCaptures": {
                         "0": {
                             "name": "punctuation.definition.string.begin.plush"
@@ -147,25 +166,86 @@
                         }
                     },
                     "name": "string.quoted.other.plush"
-                },
+                }
+            ]  
+        },
+        "function":{
+            "name":"meta.function.method.with-arguments.plush",
+            "patterns": [
                 {
-                    "match": "\b[0-9]\b",
-                    "name": "constant.numeric.plush"
-                },
-                {
-                    "match": "[A-Za-z0-9_-]+(\\()",
-                    "captures": {
-                        "0": {
-                            "name": "entity.name.function.plush"
+					"begin": "(\\\\)?(?<![a-zA-Z0-9_\\x{7f}-\\x{10ffff}])([a-zA-Z_\\x{7f}-\\x{10ffff}][a-zA-Z0-9_\\x{7f}-\\x{10ffff}]*)\\s*(\\()",
+					"beginCaptures": {
+						"1": {
+							"patterns": [
+							]
+						},
+						"2": {
+							"patterns": [
+								{
+									"match": "(?i)[a-z_\\x{7f}-\\x{10ffff}][a-z0-9_\\x{7f}-\\x{10ffff}]*",
+									"name": "entity.name.function.plush"
+								}
+							]
+						},
+						"3": {
+							"name": "punctuation.definition.arguments.begin.bracket.round.plush",
+                            "patterns": [
+                                {
+                                    "include": "#parens"
+                                },
+                                {
+                                    "include": "#braces"
+                                },
+                                {
+                                    "include": "#named-arguments"
+                                }
+                            ]
+						}
+					},
+					"end": "\\)|(?=\\?>)",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.arguments.end.bracket.round.plush"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#named-arguments"
+						},
+                        {
+                            "include": "#strings"
                         },
-                        "1": {
-                            "name": "punctuation.bracket.plush"
+                        {
+                            "include": "#variable"
+                        },
+                        {
+                            "include": "$self"
+                        },
+                        {
+                            "include": "boolean"
+                        },
+                        {
+                            "include": "#operator"
                         }
-                    }
+					]
+				},
+                {
+                    "include": "#named-arguments"
                 },
                 {
-                    "match": "\b[A-Za-z0-9_-]\b",
+                    "name": "meta.parameter.type.variable",
+                    "include": "meta.function.method.with-arguments.plush"
+                }
+            ]
+        },
+        "variable":{
+            "patterns": [
+                {
+                    "match": "([_$[:alpha:]][_$[:alnum:]]*)",
                     "name": "variable.name.plush"
+                },
+                {
+                    "include": "#boolean"
                 }
             ]
         },
@@ -180,6 +260,116 @@
                     "name":"keyword.operator.new.plush"
                 }
             ]
-        }
+        },
+        "parens": {
+            "begin": "\\(",
+            "beginCaptures": {
+                "0": {
+                    "name": "punctuation.section.function.begin.plush"
+                }
+            },
+            "end": "\\)",
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.section.function.end.plush"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#named-arguments"
+                },
+                {
+                    "include": "#braces"
+                },
+                {
+                    "include": "$self"
+                }
+            ]
+        },
+        "braces": {
+            "begin": "\\{",
+            "beginCaptures": {
+                "0": {
+                    "name": "punctuation.section.function.begin.plush"
+                }
+            },
+            "end": "\\}",
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.section.function.end.plush"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#parens"
+                },
+                {
+                    "include": "#named-arguments"
+                },
+                {
+                    "include": "$self"
+                }
+            ]
+        },
+        "brackets": {
+            "begin": "\\[",
+            "beginCaptures": {
+                "0": {
+                    "name": "punctuation.section.function.begin.plush"
+                }
+            },
+            "end": "\\]",
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.section.function.end.plush"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#braces"
+                },
+                {
+                    "include": "#parens"
+                },
+                {
+                    "include": "#named-arguments"
+                },
+                {
+                    "include": "$self"
+                }
+            ]
+        },
+        "named-arguments": {
+			"match": "(?i)(?<=|\\(|,)\\s*([A-Za-z0-9_-]*)\\s*(:)(?!:)\\s*([A-Za-z0-9_-]*)",
+			"captures": {
+				"1": {
+					"name": "entity.other.attribute-name"
+				},
+				"2": {
+					"name": "punctuation.separator.colon.plush"
+				},
+                "3": {
+                    "name": "variable.parameter.plush",
+                    "patterns": [
+                        {
+                            "include": "#function"
+                        },
+                        {
+                            "include": "#variable"
+                        },
+                        {
+                            "include": "#keyword"
+                        },
+                        {
+                            "include": "#operator"
+                        },
+                        {
+                            "include": "boolean"
+                        }
+                    ]
+				}
+			}
+            
+		}
     }
 }
