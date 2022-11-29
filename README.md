@@ -31,6 +31,22 @@ Visho provides a set of code snippets for the most common plush tags and functio
 
 Additionally these can be used with the `pl` prefix instead of `p` (e.g. `plif` instead of `pif`)
 
-### Copyright
+## FAQ
+
+### Why is it called Visho?
+
+Visho is the combination of Visual Studio Code and Plush. We just added an O at the end to make it sound cooler.
+
+### How do I make Emmet work with Visho?
+
+You will need to add the following to your `settings.json` file:
+
+```json
+"emmet.includeLanguages": {
+    "plush": "html"
+}
+```
+
+## Copyright
 
 Visho is Copyright © 2022 Wawandco SAS. It is free software, and may be redistributed under the terms specified in the LICENSE file.
