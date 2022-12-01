@@ -28,6 +28,8 @@ Visho provides a set of code snippets for the most common plush tags and functio
 - `pch` adds a plush checkbox tag
 - `pe` adds a plush expression (`<% content %>`)
 - `pt` adds a print tag (`<%= content %>`)
+- `ppt` adds a partial call tag
+- `plink` adds a linkTo tag 
 
 Additionally these can be used with the `pl` prefix instead of `p` (e.g. `plif` instead of `pif`)
 
