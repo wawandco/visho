@@ -88,6 +88,14 @@
       "for l": {
         "prefix": "plf",
         "body": "<%= for (${1:key}, ${2:value}) in ${3:expression} { %>\n\t<%= ${1} %> <%= ${2} %>\n<% } %>"
+      },
+      "partial":{
+        "prefix": "ppt",
+        "body": "<%= partial(${1:route}) %>"
+      },
+      "link to":{
+        "prefix": "plink",
+        "body": "<%= linkTo(${1:path}({}), {class:${2:class}, body:${3:body}}) %>"
       }
     }
   }
